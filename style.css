@@ -1,3 +1,8 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
 .center-screen {
     display: flex;
     justify-content: center;
@@ -10,4 +15,25 @@
     width: 400px;
     height:500px;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    border: 1px solid black;
+    display: flex;
+    flex: 1;
+}
+
+.display {
+    flex: 3;
+}
+
+.clear-button {
+    flex: 1;
+}
+
+.display {
+    border: 1px solid black;
+    text-align: right;
 }
