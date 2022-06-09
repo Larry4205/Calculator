@@ -1,0 +1,13 @@
+.center-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.wrapper {
+    width: 400px;
+    height:500px;
+    border: 1px solid black;
+}
