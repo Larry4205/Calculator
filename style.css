@@ -23,14 +23,30 @@
     border: 1px solid black;
     display: flex;
     flex: 1;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.toprow {
+    border: 1px solid black;
+    display: flex;
+    flex: 1.5;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .display {
     flex: 3;
 }
 
-.clear-button {
+.btn {
     flex: 1;
+    border: 1px solid black;
+}
+
+.zbtn {
+    flex: 2;
+    border: 1px solid black;
 }
 
 .display {
