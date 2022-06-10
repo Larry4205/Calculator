@@ -3,6 +3,7 @@ const zButton = document.querySelector('.zbtn');
 const clrBtn = document.querySelector('.clr');
 const display = document.querySelector('.nums');
 const dcmBtn = document.querySelector('.dcm');
+const plmBtn = document.querySelector('.plmbtn');
 const maxLength = 6;
 
 function operate(num1, num2, optype) {
@@ -53,3 +54,9 @@ dcmBtn.addEventListener('click', function(e) {
         display.textContent += '.';
     }
 });
+
+plmBtn.addEventListener('click', function(e) {
+    let displayNum = parseFloat(display.textContent);
+    let result = 0 - displayNum;
+    display.textContent = result.toString();
+})
