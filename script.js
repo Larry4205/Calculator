@@ -2,6 +2,7 @@ const numButtons = document.querySelectorAll('.numbtn')
 const zButton = document.querySelector('.zbtn');
 const clrBtn = document.querySelector('.clr');
 const display = document.querySelector('.nums');
+const dcmBtn = document.querySelector('.dcm');
 const maxLength = 6;
 
 function operate(num1, num2, optype) {
@@ -44,4 +45,11 @@ zButton.addEventListener('click', function(e) {
 
 clrBtn.addEventListener('click', function(e) {
     display.textContent = '0';
+});
+
+dcmBtn.addEventListener('click', function(e) {
+    let numText = display.textContent;
+    if(!numText.includes('.') && numText.length < maxLength -1) {
+        display.textContent += '.';
+    }
 });
