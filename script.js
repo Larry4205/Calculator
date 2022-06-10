@@ -1,5 +1,7 @@
 const numButtons = document.querySelectorAll('.numbtn')
 const zButton = document.querySelector('.zbtn');
+const clrBtn = document.querySelector('.clr');
+const display = document.querySelector('.nums');
 const maxLength = 6;
 
 function operate(num1, num2, optype) {
@@ -24,7 +26,6 @@ function operate(num1, num2, optype) {
 
 numButtons.forEach(function(numButton){
     numButton.addEventListener('click', function(e) {
-        let display = document.querySelector('.nums');
         let displayValue = display.textContent;
         let numEntered = numButton.id;
         if(displayValue === '0') {
@@ -36,8 +37,11 @@ numButtons.forEach(function(numButton){
 });
 
 zButton.addEventListener('click', function(e) {
-    let display = document.querySelector('.nums');
     if(display.textContent.length < maxLength && display.textContent !== '0') {
         display.textContent += '0';
     }
+});
+
+clrBtn.addEventListener('click', function(e) {
+    display.textContent = '0';
 });
