@@ -58,5 +58,7 @@ dcmBtn.addEventListener('click', function(e) {
 plmBtn.addEventListener('click', function(e) {
     let displayNum = parseFloat(display.textContent);
     let result = 0 - displayNum;
-    display.textContent = result.toString();
+    if(result !== 0) {
+        display.textContent = result.toString();
+    }
 })
