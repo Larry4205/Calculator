@@ -1,4 +1,4 @@
-const numButtons = document.querySelectorAll('.btn')
+const numButtons = document.querySelectorAll('.numbtn')
 const zButton = document.querySelector('.zbtn');
 const maxLength = 6;
 
@@ -29,7 +29,7 @@ numButtons.forEach(function(numButton){
         let numEntered = numButton.id;
         if(displayValue === '0') {
             display.textContent = numEntered;
-        } else if (display.textContent.length <= maxLength){
+        } else if (display.textContent.length < maxLength){
             display.textContent += numEntered;
         }
     });
@@ -37,7 +37,7 @@ numButtons.forEach(function(numButton){
 
 zButton.addEventListener('click', function(e) {
     let display = document.querySelector('.nums');
-    if(display.textContent.length <= maxLength && display.textContent !== '0') {
+    if(display.textContent.length < maxLength && display.textContent !== '0') {
         display.textContent += '0';
     }
 });
