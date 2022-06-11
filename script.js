@@ -50,10 +50,20 @@ numButtons.forEach(function(numButton){
 
 opButtons.forEach(function(opButton) {
     opButton.addEventListener('click', function(e) {
+        if(currentOperater === undefined) {
             lastEntry = parseFloat(display.textContent);
             currentOperater = opButton.id;
             console.log(currentOperater);
             overwrite = true;
+        } else {
+            //evaluate function
+            let currentValue = parseFloat(display.textContent);
+            let opresult = operate(lastEntry, currentValue, currentOperater);
+            display.textContent = opresult.toString();
+            lastEntry = opresult;
+            currentOperater = opButton.id;
+            overwrite = true;
+        }
     });
 });
 
