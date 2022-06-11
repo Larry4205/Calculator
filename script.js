@@ -20,7 +20,7 @@ acButton.addEventListener('click', function(e) {
     currentOperater = undefined;
     overwrite = false;
     display.textContent = '0';
-})
+});
 
 function operate(num1, num2, optype) {
     switch(optype) {
