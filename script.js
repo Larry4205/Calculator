@@ -4,6 +4,13 @@ const clrBtn = document.querySelector('.clr');
 const display = document.querySelector('.nums');
 const dcmBtn = document.querySelector('.dcm');
 const plmBtn = document.querySelector('.plmbtn');
+const eqBtn = document.querySelector('.eq');
+const opButtons = document.querySelectorAll('.opbtn');
+
+
+let currentOperater = undefined;
+let lastEntry = undefined;
+
 const maxLength = 6;
 
 function operate(num1, num2, optype) {
@@ -38,6 +45,23 @@ numButtons.forEach(function(numButton){
     });
 });
 
+eqBtn.addEventListener('click', function(e){
+    if(currentOperater === undefined) {
+        return;
+    }
+    let operated = operate(lastEntry, parseFloat(display.textContent), currentOperater);
+    display.textContent = operated.toString();
+    currentOperater = undefined;
+});
+
+opButtons.forEach(function(opButton) {
+    opButton.addEventListener('click', function(e) {
+        lastEntry = parseFloat(display.textContent);
+        currentOperater = opButton.id;
+        console.log(currentOperater);
+    });
+});
+
 zButton.addEventListener('click', function(e) {
     if(display.textContent.length < maxLength && display.textContent !== '0') {
         display.textContent += '0';
@@ -61,4 +85,5 @@ plmBtn.addEventListener('click', function(e) {
     if(result !== 0) {
         display.textContent = result.toString();
     }
-})
+});
+
