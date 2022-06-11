@@ -23,6 +23,8 @@
     border: 1px solid black;
     display: flex;
     flex: 1;
+    padding: 10px;
+    gap: 10px;
     flex-direction: row;
     justify-content: center;
 }
@@ -48,11 +50,29 @@
 .btn {
     flex: 1;
     border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 30px;
 }
 
 .zbtn {
     flex: 2;
     border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 30px;
+}
+
+#subtract {
+    font-size: 40px;
+}
+
+#dot {
+    font-size: 40px;
 }
 
 .display {
