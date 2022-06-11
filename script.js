@@ -102,7 +102,10 @@ clrBtn.addEventListener('click', function(e) {
 
 dcmBtn.addEventListener('click', function(e) {
     let numText = display.textContent;
-    if(!numText.includes('.') && numText.length < maxLength -1) {
+    if(overwrite) {
+        display.textContent = '0.';
+        overwrite = false;
+    } else if(!numText.includes('.') && numText.length < maxLength -1) {
         display.textContent += '.';
     }
 });
