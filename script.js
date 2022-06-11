@@ -10,6 +10,7 @@ const opButtons = document.querySelectorAll('.opbtn');
 
 let currentOperater = undefined;
 let lastEntry = undefined;
+let overwrite = false;
 
 const maxLength = 6;
 
@@ -37,28 +38,22 @@ numButtons.forEach(function(numButton){
     numButton.addEventListener('click', function(e) {
         let displayValue = display.textContent;
         let numEntered = numButton.id;
-        if(displayValue === '0') {
+        if(displayValue === '0' || overwrite) {
             display.textContent = numEntered;
+            overwrite = false;
         } else if (display.textContent.length < maxLength){
             display.textContent += numEntered;
         }
     });
 });
 
-eqBtn.addEventListener('click', function(e){
-    if(currentOperater === undefined) {
-        return;
-    }
-    let operated = operate(lastEntry, parseFloat(display.textContent), currentOperater);
-    display.textContent = operated.toString();
-    currentOperater = undefined;
-});
 
 opButtons.forEach(function(opButton) {
     opButton.addEventListener('click', function(e) {
         lastEntry = parseFloat(display.textContent);
         currentOperater = opButton.id;
         console.log(currentOperater);
+        overwrite = true;
     });
 });
 
@@ -66,6 +61,15 @@ zButton.addEventListener('click', function(e) {
     if(display.textContent.length < maxLength && display.textContent !== '0') {
         display.textContent += '0';
     }
+});
+
+eqBtn.addEventListener('click', function(e) {
+    if(currentOperater === undefined) {
+        return;
+    }
+    let currValue = parseFloat(display.textContent);
+    let opresult = operate(lastEntry, currValue, currentOperater);
+    display.textContent = opresult.toString();
 });
 
 clrBtn.addEventListener('click', function(e) {
