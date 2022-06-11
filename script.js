@@ -13,7 +13,7 @@ let currentOperater = undefined;
 let lastEntry = undefined;
 let overwrite = false;
 
-const maxLength = 6;
+const maxLength = 8;
 
 function truncate(displayText) {
     let displayValue = parseFloat(displayText);
@@ -51,7 +51,11 @@ function operate(num1, num2, optype) {
             return num1 * num2;
             break;
         case 'divide':
-            return num1 / num2;
+            if(num2 === 0) {
+                return "LOL NOPE";
+            } else { 
+                return num1 / num2;
+            }
             break;
         default:
             return undefined;
@@ -78,16 +82,19 @@ opButtons.forEach(function(opButton) {
         if(currentOperater === undefined) {
             lastEntry = parseFloat(display.textContent);
             currentOperater = opButton.id;
-            console.log(currentOperater);
             overwrite = true;
         } else {
             //evaluate function
             let currentValue = parseFloat(display.textContent);
             let opresult = operate(lastEntry, currentValue, currentOperater);
-            display.textContent = truncate(opresult.toString());
-            lastEntry = opresult;
-            currentOperater = opButton.id;
-            overwrite = true;
+            if(typeof opresult === 'string') {
+                display.textContent = opresult;
+            } else {
+                display.textContent = truncate(opresult.toString());
+                lastEntry = opresult;
+                currentOperater = opButton.id;
+                overwrite = true;
+            }
         }
     });
 });
@@ -107,10 +114,14 @@ eqBtn.addEventListener('click', function(e) {
     }
     let currValue = parseFloat(display.textContent);
     let opresult = operate(lastEntry, currValue, currentOperater);
-    display.textContent = truncate(opresult.toString());
-    lastEntry = opresult;
-    currentOperater = undefined;
-    overwrite = true;
+    if(typeof opresult === 'string') {
+        display.textContent = opresult;
+    } else {
+        display.textContent = truncate(opresult.toString());
+        lastEntry = opresult;
+        currentOperater = undefined;
+        overwrite = true;
+    }
 });
 
 clrBtn.addEventListener('click', function(e) {
