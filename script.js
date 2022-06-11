@@ -25,7 +25,10 @@ function truncate(displayText) {
     if(displayValue > maxValue) {
         return maxValue.toString();
     }
-    let dispTrunc = displayValue.slice(0,maxLength);
+    let dispTrunc = displayValue.toString().slice(0,maxLength);
+    if(dispTrunc.charAt(dispTrunc.length -1) === '.') {
+        dispTrunc = dispTrunc.slice(0, -1);
+    }
     return dispTrunc;
 }
 
