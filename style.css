@@ -12,8 +12,8 @@
 }
 
 .wrapper {
-    width: 400px;
-    height:500px;
+    width: 450px;
+    height: 600px;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
@@ -30,13 +30,19 @@
 .toprow {
     border: 1px solid black;
     display: flex;
-    flex: 1.5;
+    flex: 1;
     flex-direction: row;
     justify-content: center;
+    padding: 10px;
 }
 
 .display {
     flex: 3;
+    font-size: 55px;
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: right;
 }
 
 .btn {
