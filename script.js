@@ -6,6 +6,7 @@ const dcmBtn = document.querySelector('.dcm');
 const plmBtn = document.querySelector('.plmbtn');
 const eqBtn = document.querySelector('.eq');
 const opButtons = document.querySelectorAll('.opbtn');
+const acButton = document.querySelector('.all-clear');
 
 
 let currentOperater = undefined;
@@ -13,6 +14,13 @@ let lastEntry = undefined;
 let overwrite = false;
 
 const maxLength = 6;
+
+acButton.addEventListener('click', function(e) {
+    lastEntry = undefined;
+    currentOperater = undefined;
+    overwrite = false;
+    display.textContent = '0';
+})
 
 function operate(num1, num2, optype) {
     switch(optype) {
