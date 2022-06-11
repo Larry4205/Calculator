@@ -24,6 +24,8 @@ function truncate(displayText) {
     let maxValue = parseFloat(max);
     if(displayValue > maxValue) {
         return maxValue.toString();
+    } else if(displayValue < 0 - maxValue) {
+        return (0 - maxValue).toString();
     }
     let dispTrunc = displayValue.toString().slice(0,maxLength);
     if(dispTrunc.charAt(dispTrunc.length -1) === '.') {
