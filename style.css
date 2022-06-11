@@ -20,13 +20,13 @@
 }
 
 .row {
-    /*border: 1px solid black;*/
     display: flex;
     flex: 1;
     padding: 8px 15px;
     gap: 15px;
     flex-direction: row;
     justify-content: center;
+    background-color: darkblue;
 }
 
 .toprow {
@@ -36,6 +36,7 @@
     flex-direction: row;
     justify-content: center;
     padding: 10px;
+    background-color: darkblue;
 }
 
 .display {
@@ -45,6 +46,7 @@
     display: flex;
     align-items: center;
     justify-content: right;
+    background-color: darkgray;
 }
 
 .btn {
@@ -56,6 +58,7 @@
     font-family: 'Ubuntu', sans-serif;
     font-size: 30px;
     border-radius: 5px;
+    background-color: lightgrey;
 }
 
 .zbtn {
@@ -67,6 +70,7 @@
     font-family: 'Ubuntu', sans-serif;
     font-size: 30px;
     border-radius: 5px;
+    background-color: lightgrey;
 }
 
 #subtract {
