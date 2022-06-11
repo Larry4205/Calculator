@@ -15,6 +15,20 @@ let overwrite = false;
 
 const maxLength = 6;
 
+function truncate(displayText) {
+    let displayValue = parseFloat(displayText);
+    let max = "";
+    for(let i = 0; i < maxLength; i++) {
+        max += "9";
+    }
+    let maxValue = parseFloat(max);
+    if(displayValue > maxValue) {
+        return maxValue.toString();
+    }
+    let dispTrunc = displayValue.slice(0,maxLength);
+    return dispTrunc;
+}
+
 acButton.addEventListener('click', function(e) {
     lastEntry = undefined;
     currentOperater = undefined;
@@ -67,7 +81,7 @@ opButtons.forEach(function(opButton) {
             //evaluate function
             let currentValue = parseFloat(display.textContent);
             let opresult = operate(lastEntry, currentValue, currentOperater);
-            display.textContent = opresult.toString();
+            display.textContent = truncate(opresult.toString());
             lastEntry = opresult;
             currentOperater = opButton.id;
             overwrite = true;
@@ -90,7 +104,7 @@ eqBtn.addEventListener('click', function(e) {
     }
     let currValue = parseFloat(display.textContent);
     let opresult = operate(lastEntry, currValue, currentOperater);
-    display.textContent = opresult.toString();
+    display.textContent = truncate(opresult.toString());
     lastEntry = opresult;
     currentOperater = undefined;
     overwrite = true;
