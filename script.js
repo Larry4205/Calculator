@@ -50,15 +50,18 @@ numButtons.forEach(function(numButton){
 
 opButtons.forEach(function(opButton) {
     opButton.addEventListener('click', function(e) {
-        lastEntry = parseFloat(display.textContent);
-        currentOperater = opButton.id;
-        console.log(currentOperater);
-        overwrite = true;
+            lastEntry = parseFloat(display.textContent);
+            currentOperater = opButton.id;
+            console.log(currentOperater);
+            overwrite = true;
     });
 });
 
 zButton.addEventListener('click', function(e) {
-    if(display.textContent.length < maxLength && display.textContent !== '0') {
+    if(overwrite) {
+        display.textContent = '0';
+        overwrite = false;
+    } else if(display.textContent.length < maxLength && display.textContent !== '0') {
         display.textContent += '0';
     }
 });
@@ -70,6 +73,9 @@ eqBtn.addEventListener('click', function(e) {
     let currValue = parseFloat(display.textContent);
     let opresult = operate(lastEntry, currValue, currentOperater);
     display.textContent = opresult.toString();
+    lastEntry = opresult;
+    currentOperater = undefined;
+    overwrite = true;
 });
 
 clrBtn.addEventListener('click', function(e) {
